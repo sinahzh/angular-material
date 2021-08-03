@@ -1,7 +1,6 @@
-<app-filter (valueInputFilter)="InputFilter($event)"> </app-filter>
 
 
-<mat-table id="customers" [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+<mat-table id="customers" [dataSource]="DataEmployee" class="mat-elevation-z8" matSort>
   <!--Employaees-->
 
   <!--- Note that these columns can be defined in any order.
@@ -79,5 +78,3 @@
 
 </mat-table>
 
-<app-pagination [length]=5 [pageSize]=5 [pageSizeOptions]="[5, 10, 25, 100]" [pageIndex]=0>
-</app-pagination>

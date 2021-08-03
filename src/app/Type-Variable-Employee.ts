@@ -1,7 +1,7 @@
 export class TypeVariableEmployee {
     public id: number;
     public FirstName: string;
-    public SecondName: string;
+    public lastName: string;
     public NationalCode: number;
     public TotalTimeEmployeeInMonth: number;
     public AverageEmployeeArrivalTime: number;
@@ -10,7 +10,7 @@ export class TypeVariableEmployee {
     constructor(
       id: number,
       FirstName: string,
-      SecondName: string,
+      lastName: string,
       NationalCode: number,
       TotalTimeEmployeeInMonth: number,
       AverageEmployeeArrivalTime: number,
@@ -19,7 +19,7 @@ export class TypeVariableEmployee {
     ) {
       this.id = id;
       this.FirstName = FirstName;
-      this.SecondName = SecondName;
+      this.lastName = lastName;
       this.NationalCode = NationalCode;
       this.TotalTimeEmployeeInMonth = TotalTimeEmployeeInMonth;
       this.AverageEmployeeArrivalTime = AverageEmployeeArrivalTime;

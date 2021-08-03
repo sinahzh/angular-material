@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>Add Data</h1>
+<div mat-dialog-content>
+  <p>first name</p>
+  <form [formGroup]="AddForm" class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>id</mat-label>
+    <!-- <input matInput [(ngModel)]="data.animal"> -->
+    <input matInput formcontrolname="id">
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>FirstName</mat-label>
+
+    <input matInput formcontrolname="firstName">
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>lastName</mat-label>
+
+    <input matInput formcontrolname="lastName">
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>NationalCode</mat-label>
+
+    <input matInput formcontrolname="NationalCode">
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>TotalTimeEmployeeInMonth</mat-label>
+
+    <input matInput formcontrolname="TotalTimeEmployeeInMonth">
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>AverageEmployeeArrivalTime</mat-label>
+
+    <input matInput  formcontrolname="AverageEmployeeArrivalTime">
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>AverageEmployeeDepartureTime</mat-label>
+
+    <input matInput  formcontrolname="AverageEmployeeDepartureTime">
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>NumberOfProductsProducedByAnyEmployee</mat-label>
+
+    <input matInput  formcontrolname="NumberOfProductsProducedByAnyEmployee">
+
+  </mat-form-field>
+</form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" >No Thanks</button>
+  <button mat-button type="submit"  [mat-dialog-close]="data"  (click)="onSubmit()" cdkFocusInitial>Ok</button> 
+  <!-- [mat-dialog-close]="data" -->
+</div>

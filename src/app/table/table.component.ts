@@ -17,22 +17,14 @@ import { PaginationComponent } from '../pagination/pagination.component';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements AfterViewInit {
-  // @Input() DataEmployee: TypeVariableEmployee[];
-  dataSource = new MatTableDataSource<TypeVariableEmployee>(Employee);
-  employees = Employee;
-  @ViewChild(MatSort)
-  sort: MatSort = new MatSort;
-  @ViewChild(PaginationComponent)
-  PaginationComponent: PaginationComponent = new PaginationComponent; // @ViewChild('paginator1') paginator1: MatPaginator;
+export class TableComponent {
+  @Input() DataEmployee !: any;
+  // @ViewChild(MatSort)
+  // sort: MatSort = new MatSort;
+  // @ViewChild(PaginationComponent)
+  // PaginationComponent: PaginationComponent = new PaginationComponent; // @ViewChild('paginator1') paginator1: MatPaginator;
  // @ViewChild('paginator1') paginator1: MatPaginator;
-  InputFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
   displayedColumns: string[] = [
     'id',
     'FirstName',
@@ -45,16 +37,14 @@ export class TableComponent implements AfterViewInit {
   ];
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource<TypeVariableEmployee>(
-      this.employees
-    );
+  
 
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.PaginationComponent.matPaginator;
-    this.dataSource.sort = this.sort;
-  }
+  // ngAfterViewInit() {
+  //   this.dataSource.paginator = this.PaginationComponent.matPaginator;
+  //   this.dataSource.sort = this.sort;
+  // }
 
   onPaginationChange(event:any) {
     //  this.dataSource.paginator.length = event.length;
