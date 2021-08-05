@@ -27,8 +27,8 @@ export class TableComponent {
 
   displayedColumns: string[] = [
     'id',
-    'FirstName',
-    'SecondName',
+    'firstName',
+    'lastName',
     'NationalCode',
     'TotalTimeEmployeeInMonth',
     'AverageEmployeeArrivalTime',

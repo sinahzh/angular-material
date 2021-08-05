@@ -3,50 +3,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Pcms</title>
+  <title> </title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <ol>
-    <li>
-      <mat-form-field appearance="fill">
-        <mat-label>What's your name?</mat-label>
-        <input matInput [(ngModel)]="name">
-      </mat-form-field>
-    </li>
+
+  <!--Open Dialog-->
     <li>
       <button mat-raised-button (click)="openDialog()">Add Data</button>
     </li>
-    <li *ngFor="let datas of resultr">
 
-      You chose: <i>{{datas.id}}</i>
-      You chose: <i>{{datas.FirstName}}</i>
-      You chose: <i>{{datas.SecondName}}</i>
-      You chose: <i>{{datas.NationalCode}}</i>
-      You chose: <i>{{datas.TotalTimeEmployeeInMonth}}</i>
-      You chose: <i>{{datas.AverageEmployeeArrivalTime}}</i>
-      You chose: <i>{{datas.AverageEmployeeDepartureTime}}</i>
-      You chose: <i>{{datas.NumberOfProductsProducedByAnyEmployee}}</i>
-
-
-
-    </li>
-  </ol>
-
-
-
-
+  <!--Components-->
   <app-filter (valueInputFilter)="InputFilter($event)"> </app-filter>
   <app-table [DataEmployee] = "dataSource"></app-table>
   <app-pagination [length]=5 [pageSize]=5 [pageSizeOptions]="[5, 10, 25, 100]" [pageIndex]=0>
   </app-pagination>
 
-  
-<p>
-  Start editing to see some magic happen :)
-</p>
 </body>
 </html>
 

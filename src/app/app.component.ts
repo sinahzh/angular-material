@@ -19,10 +19,19 @@ import { TableComponent } from './table/table.component';
 })
 export class AppComponent  implements AfterViewInit{
   data: any;
-
+  resultr:any;
+  animal: string = "";
+  name: string = "sina";
+  id: number = 0;
+  firstName: string  = "";
+  lastName: string = "";
+  NationalCode: number = 0;
+  TotalTimeEmployeeInMonth: number = 0;
+  AverageEmployeeArrivalTime: number = 0;
+  AverageEmployeeDepartureTime: number = 0;
+  NumberOfProductsProducedByAnyEmployee: number = 0;
   Employees: TypeVariableEmployee[] = [];
 
-  //dataSource = new MatTableDataSource<TypeVariableEmployee>(Employee);
   dataSource = new MatTableDataSource<TypeVariableEmployee>(Employee);
 
   @ViewChild(MatSort)
@@ -33,9 +42,7 @@ export class AppComponent  implements AfterViewInit{
 
   @ViewChild(TableComponent)
   TableComponent: TableComponent = new TableComponent;
-  
-  //name = 'Angular ' + VERSION.major;
-  //Employees: TypeVariableEmployee[] = [];
+
   InputFilter(filterValue: string) {
     console.log("filterValue",filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -45,60 +52,43 @@ export class AppComponent  implements AfterViewInit{
     }
   }
 
-  ngOnInit() {
-    this.dataSource = new MatTableDataSource<TypeVariableEmployee>(
-      Employee
-    );
-
  
-
-  }
-
   ngAfterViewInit() {
     this.dataSource.paginator = this.PaginationComponent.matPaginator;
     this.dataSource.sort = this.sort;
   }
 
-  onPaginationChange(event:any) {
-    //  this.dataSource.paginator.length = event.length;
-    //  this.dataSource.paginator.pageSize = event.pageSize;
-    //  this.dataSource.paginator.pageIndex = event.pageIndex;
-    //  this.dataSource.paginator.pageIndex = event.pageIndex;
-  }
-
-
-
-
-  /* dialog */
-  resultr:any;
-  animal: string = "";
-  name: string = "sina";
-  id: number = 0;
-  FirstName: string  = "";
-  SecondName: string = "";
-  NationalCode: number = 0;
-  TotalTimeEmployeeInMonth: number = 0;
-  AverageEmployeeArrivalTime: number = 0;
-  AverageEmployeeDepartureTime: number = 0;
-  NumberOfProductsProducedByAnyEmployee: number = 0;
-
-
   constructor(public dialog: MatDialog) {}
 
+  /* dialog */
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '450px',
       data: { id: this.id, 
-        FirstName: this.FirstName, SecondName: this.SecondName,
-        NationalCode: this.NationalCode, TotalTimeEmployeeInMonth:this.TotalTimeEmployeeInMonth,
-        AverageEmployeeArrivalTime: this.AverageEmployeeArrivalTime, AverageEmployeeDepartureTime:this.AverageEmployeeDepartureTime
+        firstName: this.firstName, lastName: this.lastName,
+        NationalCode: this.NationalCode, 
+        TotalTimeEmployeeInMonth:this.TotalTimeEmployeeInMonth,
+        AverageEmployeeArrivalTime: this.AverageEmployeeArrivalTime, 
+        AverageEmployeeDepartureTime:this.AverageEmployeeDepartureTime
         ,NumberOfProductsProducedByAnyEmployee:this.NumberOfProductsProducedByAnyEmployee
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-    this.resultr  = result;
-    console.log("result r in app.component.ts",this.resultr)
+    dialogRef.afterClosed().subscribe(
+      result => {
+        Employee.push(result);
+        this.dataSource = new MatTableDataSource<TypeVariableEmployee>(
+          Employee
+        );
+        this.dataSource.paginator = this.PaginationComponent.matPaginator;
+        this.dataSource.sort = this.sort;
     });
+  }
+
+  ngOnInit() {
+    this.dataSource = new MatTableDataSource<TypeVariableEmployee>(
+      Employee
+    );
   }
 }

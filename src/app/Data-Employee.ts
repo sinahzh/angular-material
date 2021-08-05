@@ -9,7 +9,7 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 34,
     AverageEmployeeDepartureTime: 52,
     NumberOfProductsProducedByAnyEmployee: 432,
-    FirstName: 'Dr Nice'
+    firstName: 'Dr Nice'
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 20,
     AverageEmployeeDepartureTime: 456,
     NumberOfProductsProducedByAnyEmployee: 74,
-    FirstName: 'Narco'
+    firstName: 'Narco'
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 55,
     AverageEmployeeDepartureTime: 645,
     NumberOfProductsProducedByAnyEmployee: 234,
-    FirstName: 'Bombasto'
+    firstName: 'Bombasto'
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 67,
     AverageEmployeeDepartureTime: 667,
     NumberOfProductsProducedByAnyEmployee: 865,
-    FirstName: 'Celeritas'
+    firstName: 'Celeritas'
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 64,
     AverageEmployeeDepartureTime: 34,
     NumberOfProductsProducedByAnyEmployee: 53,
-    FirstName: 'Magneta'
+    firstName: 'Magneta'
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 57,
     AverageEmployeeDepartureTime: 87,
     NumberOfProductsProducedByAnyEmployee: 445,
-    FirstName: 'RubberMan'
+    firstName: 'RubberMan'
   },
   {
     id: 7,
@@ -69,7 +69,7 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 45,
     AverageEmployeeDepartureTime: 78,
     NumberOfProductsProducedByAnyEmployee: 3,
-    FirstName: 'Dynama'
+    firstName: 'Dynama'
   },
   {
     id: 8,
@@ -79,7 +79,7 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 7,
     AverageEmployeeDepartureTime: 56,
     NumberOfProductsProducedByAnyEmployee: 45,
-    FirstName: 'Dr IQ'
+    firstName: 'Dr IQ'
   },
   {
     id: 9,
@@ -89,7 +89,7 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 20,
     AverageEmployeeDepartureTime: 65,
     NumberOfProductsProducedByAnyEmployee: 23,
-    FirstName: 'Magma'
+    firstName: 'Magma'
   },
   {
     id: 10,
@@ -99,6 +99,6 @@ export const Employee: TypeVariableEmployee[] = [
     AverageEmployeeArrivalTime: 20,
     AverageEmployeeDepartureTime: 90,
     NumberOfProductsProducedByAnyEmployee: 23,
-    FirstName: 'Tornado'
+    firstName: 'Tornado'
   }
 ];
