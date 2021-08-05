@@ -1,7 +1,6 @@
-<app-filter (valueInputFilter)="InputFilter($event)"> </app-filter>
 
 
-<mat-table id="customers" [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+<mat-table id="customers" [dataSource]="DataEmployee" class="mat-elevation-z8" matSort>
   <!--Employaees-->
 
   <!--- Note that these columns can be defined in any order.
@@ -13,16 +12,16 @@
     <td mat-cell *matCellDef="let element">{{element.id}}</td>
   </ng-container>
 
-  <!-- FirstName Column -->
-  <ng-container matColumnDef="FirstName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>FirstName</th>
-    <td mat-cell *matCellDef="let element">{{element.FirstName}}</td>
+  <!-- firstName Column -->
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>firstName</th>
+    <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
   </ng-container>
 
-  <!-- SecondName Column -->
-  <ng-container matColumnDef="SecondName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>SecondName</th>
-    <td mat-cell *matCellDef="let element">{{element.SecondName}}</td>
+  <!-- lastName Column -->
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>lastName</th>
+    <td mat-cell *matCellDef="let element">{{element.lastName}}</td>
   </ng-container>
 
   <!-- NationalCode Column -->
@@ -79,5 +78,3 @@
 
 </mat-table>
 
-<app-pagination [length]=5 [pageSize]=5 [pageSizeOptions]="[5, 10, 25, 100]" [pageIndex]=0>
-</app-pagination>
