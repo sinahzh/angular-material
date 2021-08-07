@@ -24,6 +24,7 @@ export class TableComponent {
   // @ViewChild(PaginationComponent)
   // PaginationComponent: PaginationComponent = new PaginationComponent; // @ViewChild('paginator1') paginator1: MatPaginator;
  // @ViewChild('paginator1') paginator1: MatPaginator;
+ @ViewChild(MatSort) matSort !: MatSort;
 
   displayedColumns: string[] = [
     'id',

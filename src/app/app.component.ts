@@ -34,8 +34,7 @@ export class AppComponent  implements AfterViewInit{
 
   dataSource = new MatTableDataSource<TypeVariableEmployee>(Employee);
 
-  @ViewChild(MatSort)
-  sort: MatSort = new MatSort;
+
 
   @ViewChild(PaginationComponent)
   PaginationComponent: PaginationComponent = new PaginationComponent;
@@ -55,7 +54,7 @@ export class AppComponent  implements AfterViewInit{
  
   ngAfterViewInit() {
     this.dataSource.paginator = this.PaginationComponent.matPaginator;
-    this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.TableComponent.matSort;
   }
 
   constructor(public dialog: MatDialog) {}
@@ -82,8 +81,8 @@ export class AppComponent  implements AfterViewInit{
           Employee
         );
         this.dataSource.paginator = this.PaginationComponent.matPaginator;
-        this.dataSource.sort = this.sort;
-    });
+        this.dataSource.sort = this.TableComponent.matSort;
+      });
   }
 
   ngOnInit() {
