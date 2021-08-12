@@ -42,6 +42,7 @@ export class TableComponent {
 
   }
 
+  
   // ngAfterViewInit() {
   //   this.dataSource.paginator = this.PaginationComponent.matPaginator;
   //   this.dataSource.sort = this.sort;

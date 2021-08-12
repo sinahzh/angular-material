@@ -32,6 +32,11 @@ export class AppComponent  implements AfterViewInit{
   NumberOfProductsProducedByAnyEmployee: number = 0;
   Employees: TypeVariableEmployee[] = [];
 
+
+
+
+
+
   dataSource = new MatTableDataSource<TypeVariableEmployee>(Employee);
 
 
