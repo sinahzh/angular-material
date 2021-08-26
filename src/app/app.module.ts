@@ -11,15 +11,22 @@ import { MaterialModule } from './material/material.module';
 import { DialogComponent } from './dialog/dialog.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { LoginComponent } from './login/login.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { EmployeeComponent } from './employee/employee.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AuthGuard } from './guards/auth.guard';
+import { NotFoundComponent } from './not-found/not-found.component'; 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
     TableComponent,
     PaginationComponent,
-    DialogComponent
+    DialogComponent,
+    LoginComponent,
+    EmployeeComponent,
+    NotFoundComponent
     
   ],
   imports: [
@@ -30,12 +37,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     BrowserAnimationsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+    
   ],
   entryComponents: [
     DialogComponent
   ],
-  providers: [],
+  providers: [AuthGuard],    
   bootstrap: [AppComponent]
 })
 export class AppModule { }
