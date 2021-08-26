@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
   loginForm !: FormGroup;
   message!: string;  
   returnUrl!: string;  
-  model: Login = { userid: "admin", password: "admin@123" }  
-  // private authService : AuthService,
+
   constructor(private formBuilder : FormBuilder,  
     private router : Router,  
     private authService : AuthService   ) {
@@ -33,15 +32,7 @@ export class LoginComponent implements OnInit {
   this.returnUrl = '/employee';  
   this.authService.logout();  
   }  
-  // ngOnInit() {
-    // this.authService.getJSON().subscribe(
-    //   (res: any) => {
-    //     this.users = res;
-    //     localStorage.setItem('token', res.token);
-    //   }
-      
-    //   );
-  // }
+
 
   get f() { return this.loginForm.controls; }  
 
@@ -58,7 +49,6 @@ export class LoginComponent implements OnInit {
         console.log("users", this.users);
         if ( res.find((r: { name: any, password:any })=> r.name == this.f.userid.value && r.password == this.f.password.value )) {  
           console.log("Login successful");  
-          //this.authService.authLogin(this.model);  
           localStorage.setItem('isLoggedIn', "true");  
           localStorage.setItem('token', this.f.userid.value);  
           this.router.navigate([this.returnUrl]);  
@@ -73,10 +63,6 @@ export class LoginComponent implements OnInit {
     }  
 } 
 
-
-loginUser () {
-  console.log('email and password', this.email , this.password)
-}
  
 
 

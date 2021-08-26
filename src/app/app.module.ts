@@ -12,7 +12,6 @@ import { DialogComponent } from './dialog/dialog.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { AuthModule } from '@auth0/auth0-angular';
 import { EmployeeComponent } from './employee/employee.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard';
