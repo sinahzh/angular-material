@@ -2,7 +2,9 @@ import {   Component,
   OnInit,
   Input,
   ViewChild,
-  AfterViewInit } from '@angular/core';
+  NgZone,
+  AfterViewInit, 
+  ChangeDetectorRef} from '@angular/core';
 import { Employee } from '../Data-Employee';
 import { TypeVariableEmployee } from '../Type-Variable-Employee';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -15,6 +17,8 @@ import { TableComponent } from '../table/table.component';
 import { Login } from 'src/app/interfaces/login';  
 import { AuthService } from '../services/auth.service' 
 import { Router } from '@angular/router';
+import { EmployeeService } from '../services/employee.service';
+import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
 
 @Component({
   selector: 'app-employee',
@@ -27,7 +31,7 @@ export class EmployeeComponent implements AfterViewInit {
   resultr:any;
   animal: string = "";
   name: string = "sina";
-  index: number = 0;
+  id: number = 0;
   firstName: string  = "";
   lastName: string = "";
   NationalCode: number = 0;
@@ -40,7 +44,8 @@ export class EmployeeComponent implements AfterViewInit {
 
 
 
-  dataSource = new MatTableDataSource<TypeVariableEmployee>(Employee);
+  // dataSource = new MatTableDataSource<TypeVariableEmployee>(Employee);
+  dataSource = new MatTableDataSource<TypeVariableEmployee>();
 
 
 
@@ -48,7 +53,8 @@ export class EmployeeComponent implements AfterViewInit {
   PaginationComponent: PaginationComponent = new PaginationComponent;
 
   @ViewChild(TableComponent)
-  TableComponent: TableComponent = new TableComponent;
+  TableComponent!: TableComponent ;
+  result: any;
 
   InputFilter(filterValue: string) {
     console.log("filterValue",filterValue);
@@ -66,7 +72,9 @@ export class EmployeeComponent implements AfterViewInit {
   }
 
   constructor(public dialog: MatDialog,
-    private router: Router, private authService: AuthService) {}
+    private router: Router, private authService: AuthService,
+        private EmployeeService: EmployeeService,
+    ) {}
 
 
   /* ---Logout--- */
@@ -75,15 +83,54 @@ export class EmployeeComponent implements AfterViewInit {
     this.authService.logout();  
     this.router.navigate(['/login']);  
  } 
- /* ---Logout--- */
+ /* ---Logout---*/
 
+ /* dialog delete data */
 
-  /* dialog */
+//  deleteItem(id: number) {
+//   this.id = id;
+//   const dialogRef = this.dialog.open(DialogDeleteComponent, {
+//       data: { id: this.id, 
+//       firstName: this.firstName
+//     }
+//   });
+
+//   dialogRef.afterClosed().subscribe(result => {
+//     if (result === 1) {
+//       const foundIndex = this.EmployeeService.deleteUser(this.id);
+//       this.GetUsers();
+//     }
+//   });
+// }
+
+  /* dialog update data */
+  // updateItem(id: number) {
+  //   this.id = id;
+  //   const dialogRef = this.dialog.open(DialogDeleteComponent, {
+  //       data: { id: this.id, 
+  //         firstName: this.firstName, lastName: this.lastName,
+  //         NationalCode: this.NationalCode, 
+  //         TotalTimeEmployeeInMonth:this.TotalTimeEmployeeInMonth,
+  //         AverageEmployeeArrivalTime: this.AverageEmployeeArrivalTime, 
+  //         AverageEmployeeDepartureTime:this.AverageEmployeeDepartureTime
+  //         ,NumberOfProductsProducedByAnyEmployee:this.NumberOfProductsProducedByAnyEmployee
+  //     }
+  //   });
+  
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result === 1) {
+  //       const foundIndex = this.EmployeeService.deleteUser(this.id);
+  //       this.GetUsers();
+  //     }
+  //   });
+  // }
+
+  /* dialog insert data*/
   
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '450px',
-      data: { index: this.index, 
+      data: { id: this.id, 
         firstName: this.firstName, lastName: this.lastName,
         NationalCode: this.NationalCode, 
         TotalTimeEmployeeInMonth:this.TotalTimeEmployeeInMonth,
@@ -95,23 +142,38 @@ export class EmployeeComponent implements AfterViewInit {
 
     dialogRef.afterClosed().subscribe(
       result => {
-        Employee.push(result);
-        this.dataSource = new MatTableDataSource<TypeVariableEmployee>(
-          Employee
-        );
-        this.dataSource.paginator = this.PaginationComponent.matPaginator;
-        this.dataSource.sort = this.TableComponent.matSort;
+        this.EmployeeService.AddUser(result).subscribe(() => {
+          console.log('User added successfully!')
+          this.GetUsers();
+        }, (err) => {
+          console.log(err);
+      });
+        // Employee.push(result);
+        // this.dataSource = new MatTableDataSource<TypeVariableEmployee>(
+        //   Employee
+        // );
+        // this.dataSource.paginator = this.PaginationComponent.matPaginator;
+        // this.dataSource.sort = this.TableComponent.matSort;
       });
   }
 
-  id!: string;
+  
+
+  idAuth!: string;
+
+
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource<TypeVariableEmployee>(
-      Employee
-    );
-    this.id != localStorage.getItem('token'); 
+    this.GetUsers();
+    this.idAuth != localStorage.getItem('token'); 
     console.log("id is:",this.id); 
+  }
+  GetUsers() {
+    this.EmployeeService.GetUsers().subscribe((data: any) => {
+      this.dataSource = new MatTableDataSource<TypeVariableEmployee>(data.data);
+      this.dataSource.paginator = this.PaginationComponent.matPaginator;
+      this.dataSource.sort = this.TableComponent.matSort;
+    });
   }
 
 }

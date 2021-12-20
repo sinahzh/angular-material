@@ -23,7 +23,7 @@ export class DialogComponent {
     { }
 
   AddForm = this.fb.group({
-    index: null,
+    id: null,
     firstName: [''],
     lastName: [''],
     NationalCode: null,

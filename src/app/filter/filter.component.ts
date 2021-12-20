@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class FilterComponent implements OnInit {
   constructor() {}
+  
   @Output() valueInputFilter = new EventEmitter<string>();
 
   ValueFilterEmployee(e: any) {

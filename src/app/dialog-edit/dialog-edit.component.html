@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Add Data</h1>
 <div mat-dialog-content>
-  <form [formGroup]="AddForm" class="form-container" (ngSubmit)="onSubmit()">
+  <form [formGroup]="editForm" class="form-container" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="fill">
     <mat-label>id</mat-label>
     <!-- <input matInput [(ngModel)]="data.animal"> -->
@@ -10,14 +10,14 @@
     <mat-form-field appearance="fill">
       <mat-label>FirstName</mat-label>
 
-       <input matInput formControlName="firstName">
-     </mat-form-field>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>lastName</mat-label>
 
-      <input matInput formControlName="lastName">
-    </mat-form-field>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>NationalCode</mat-label>

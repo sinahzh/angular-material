@@ -9,6 +9,7 @@ table {
   
   td, th {
     width: 25%;
+    text-align: center;
   }
   th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
     padding-top: 20px;

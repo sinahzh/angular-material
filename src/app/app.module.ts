@@ -15,7 +15,11 @@ import { LoginComponent } from './login/login.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard';
-import { NotFoundComponent } from './not-found/not-found.component'; 
+import { NotFoundComponent } from './not-found/not-found.component';
+import { DialogEditComponent } from './dialog-edit/dialog-edit.component';
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component'; 
+import { EmployeeService } from './services/employee.service';
+import { PropertiesComponent } from './properties/properties.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DialogComponent,
     LoginComponent,
     EmployeeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DialogEditComponent,
+    DialogDeleteComponent,
+    PropertiesComponent
     
   ],
   imports: [
@@ -43,7 +50,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   entryComponents: [
     DialogComponent
   ],
-  providers: [AuthGuard],    
+  providers: [AuthGuard, EmployeeService],    
   bootstrap: [AppComponent]
 })
 export class AppModule { }

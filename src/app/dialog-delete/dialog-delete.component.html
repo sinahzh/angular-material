@@ -1,0 +1,11 @@
+<div class="container">
+    <h3 mat-dialog-title>Are you sure?</h3>
+    <div mat-dialog-content>
+      <p>do you want delete {{data.firstName}}?</p>
+    </div>
+  
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+      <button mat-button [mat-dialog-close]="1" >Delete</button>
+    </div>
+  </div>
